@@ -70,11 +70,7 @@ class RootIndex extends React.Component {
               <Navigation />
             </div>
             <div className="content-wrapper">
-              <div className="page-content">
-                <h1>Carter Cowan</h1>
-                <p className="meta">Fullstack Engineer</p>
-                <p className="meta">Austin, TX</p>
-              </div>
+              <Hero />
               {pages.map((page, index) => (
                 <PageContent title={page.title} content={page.content} key={index} />
               ))}
