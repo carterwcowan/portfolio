@@ -103,10 +103,6 @@ a {
 .content-wrapper {
   width: 75vw;
   height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center; */
   overflow-y: scroll;
 }
 
@@ -132,4 +128,8 @@ a {
   flex-direction: column;
   align-items: center;
   height: 100%;
+}
+
+.content-wrapper .page-content p, h2 {
+  color: white;
 }

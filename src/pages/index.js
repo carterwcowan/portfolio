@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import Navigation from '../components/navigation'
 
 class RootIndex extends React.Component {
   render() {
@@ -12,7 +13,6 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const nav = get(this, 'props.data.allContentfulNavigation.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    this.onMenuItemClick = this.onMenuItemClick.bind(this)
 
     return (
       <Layout location={this.props.location} showNav={nav.showNav}>
@@ -20,28 +20,7 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
           <div className="app-wrapper">
             <div className="menu-wrapper">
-              <div className="menu-container">
-                <h4>
-                  <a data-target="about" onClick={this.onMenuItemClick}>
-                    About
-                  </a>
-                </h4>
-                <h4>
-                  <a data-target="experience" onClick={this.onMenuItemClick}>
-                    Experience
-                  </a>
-                </h4>
-                <h4>
-                  <a data-target="blog" onClick={this.onMenuItemClick}>
-                    Blog
-                  </a>
-                </h4>
-                <h4>
-                  <a data-target="contact" onClick={this.onMenuItemClick}>
-                    Contact
-                  </a>
-                </h4>
-              </div>
+              <Navigation/>
             </div>
             <div className="content-wrapper">
               <div className="page-content">
@@ -108,13 +87,6 @@ class RootIndex extends React.Component {
     )
   }
 
-  onMenuItemClick({ target }) {
-    console.log(target)
-    document.getElementById(target.dataset.target).scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    })
-  }
 }
 
 export default RootIndex
